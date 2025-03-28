@@ -7,6 +7,8 @@ let groundY = 300;
 let label = '';
 let count = 0;
 
+
+
 function setup() {
   createCanvas(800, 400);
   // Se crea el dino pasándole la posición del suelo
