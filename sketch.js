@@ -4,6 +4,9 @@ let dino;
 let obstacles = [];
 let groundY = 300;
 
+let label = '';
+let count = 0;
+
 function setup() {
   createCanvas(800, 400);
   // Se crea el dino pasándole la posición del suelo
@@ -19,6 +22,10 @@ function draw() {
   dino.update();
   dino.show();
 
+  textSize(32);
+  textAlign(LEFT, TOP)
+  text(label, 10, 10);
+
   // Cada 60 frames se crea un nuevo obstáculo
   if (frameCount % 60 === 0) {
     obstacles.push(new Obstacle(groundY));
@@ -28,6 +35,7 @@ function draw() {
   for (let i = obstacles.length - 1; i >= 0; i--) {
     obstacles[i].update();
     obstacles[i].show();
+    label = '';
 
     // Si hay colisión, detener el juego
     if (obstacles[i].hits(dino)) {
@@ -37,6 +45,9 @@ function draw() {
 
     // Eliminar obstáculos que han salido de la pantalla
     if (obstacles[i].offscreen()) {
+      textSize(32)
+      textAlign(CENTER, CENTER);
+      label = '+1'
       obstacles.splice(i, 1);
     }
   }
