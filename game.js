@@ -1,5 +1,11 @@
 // game.js
 
+let img
+
+function preload(){
+ img = loadImage('./assets/dino.png');
+}
+
 class Dino {
     constructor(groundY) {
       this.r = 50;
@@ -29,8 +35,7 @@ class Dino {
     }
     
     show() {
-      fill(50);
-      rect(this.x, this.y, this.r, this.r);
+      image(img, this.x, this.y, this.r, this.r);
     }
   }
   
