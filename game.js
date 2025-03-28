@@ -10,6 +10,8 @@ function preload() {
 }
 
 class Dino {
+    totalJumps;
+
     constructor(groundY) {
         this.r = 50;
         this.x = 50;
@@ -17,11 +19,13 @@ class Dino {
         this.y = groundY - this.r;
         this.vy = 0;
         this.gravity = 2;
+        this.totalJumps = 0;
     }
 
     jump() {
         // Permite saltar solo si está en el suelo
         if (this.y === this.groundY - this.r) {
+            this.totalJumps = this.totalJumps + 1;
             this.vy = -25;
         }
     }
@@ -43,6 +47,10 @@ class Dino {
 
     show() {
         image(img, this.x, this.y, this.r, this.r);
+    }
+
+    getTotalJumps(){
+        return this.totalJumps;
     }
 }
 
