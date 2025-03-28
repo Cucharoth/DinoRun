@@ -1,10 +1,12 @@
 // game.js
-
 let img;
+let imgTree;
+let deadImage;
 
 function preload() {
-    imgTree = loadImage("/assets/tree.png");
+    imgTree = loadImage("./assets/tree.png");
     img = loadImage("./assets/dino.png");
+    deadImage = loadImage("./assets/explosion.png")
 }
 
 class Dino {
@@ -35,10 +37,12 @@ class Dino {
         }
     }
 
+    dead(){
+        image(deadImage, this.x, this.y, this.r, this.r);
+    }
+
     show() {
-        fill(50);
-        rect(this.x, this.y, this.r, this.r);
-      image(img, this.x, this.y, this.r, this.r);
+        image(img, this.x, this.y, this.r, this.r);
     }
 }
 
