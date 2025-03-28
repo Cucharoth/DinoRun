@@ -8,11 +8,11 @@ let label = '';
 let count = 0;
 
 function setup() {
-  createCanvas(800, 400);
-  // Se crea el dino pasándole la posición del suelo
-  dino = new Dino(groundY);
-  // Se agrega el primer obstáculo
-  obstacles.push(new Obstacle(groundY));
+    createCanvas(800, 400);
+    // Se crea el dino pasándole la posición del suelo
+    dino = new Dino(groundY);
+    // Se agrega el primer obstáculo
+    obstacles.push(new Obstacle(groundY));
 }
 
 function draw() {
